@@ -1,0 +1,25 @@
+projection;
+strict;
+use draft;
+
+define behavior for ZKjan_C_Bac_S alias KjanBacAll
+
+{
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+  use action SelectCustomizingTransptReq;
+
+  use association _Bac { create; with draft; }
+}
+
+define behavior for ZKjan_C_Bac alias Bac
+
+{
+  use update;
+  use delete;
+
+  use association _KjanBacAll { with draft; }
+}

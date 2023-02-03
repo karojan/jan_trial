@@ -1,0 +1,72 @@
+managed with additional save implementation in class ZBP_I_KJANBAC_S unique;
+strict;
+with draft;
+
+define behavior for ZKjan_I_Bac_S alias KjanBacAll
+draft table ZKJAN_DB_BAC_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+
+{
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _Bac { create ( features : instance ); with draft; }
+}
+
+define behavior for ZKjan_I_Bac alias Bac
+persistent table ZKJAN_DB_BAC
+draft table ZKJAN_DB_BAC_D
+etag master LocalLastChangedAt
+lock dependent by _KjanBacAll
+authorization dependent by _KjanBacAll
+
+{
+  field ( mandatory : create )
+   Customer,
+   Salesorg,
+   Distr,
+   Div,
+   Datbi;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt;
+
+  field ( readonly : update )
+   Customer,
+   Salesorg,
+   Distr,
+   Div,
+   Datbi;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZKJAN_DB_BAC
+  {
+    Customer = CUSTOMER;
+    Salesorg = SALESORG;
+    Distr = DISTR;
+    Div = DIV;
+    Datbi = DATBI;
+    Datab = DATAB;
+    Accnum = ACCNUM;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _KjanBacAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT { create; update; delete; }
+}

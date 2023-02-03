@@ -1,0 +1,92 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Bac', 
+    typeNamePlural: 'Bacs', 
+    title: {
+      type: #STANDARD, 
+      label: 'kjan bac', 
+      value: 'Customer'
+    }
+  }
+}
+annotate view ZKjan_C_Bac with
+{
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Customer'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Customer'
+  } ]
+  @UI.facet: [ {
+    id: 'ZKjan_I_Bac', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'kjan bac', 
+    position: 1 
+  } ]
+  Customer;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Salesorg'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Salesorg'
+  } ]
+  Salesorg;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Distr'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Distr'
+  } ]
+  Distr;
+  
+  @UI.identification: [ {
+    position: 4 , 
+    label: 'Div'
+  } ]
+  @UI.lineItem: [ {
+    position: 4 , 
+    label: 'Div'
+  } ]
+  Div;
+  
+  @UI.identification: [ {
+    position: 5 
+  } ]
+  @UI.lineItem: [ {
+    position: 5 
+  } ]
+  Datbi;
+  
+  @UI.identification: [ {
+    position: 6 
+  } ]
+  @UI.lineItem: [ {
+    position: 6 
+  } ]
+  Datab;
+  
+  @UI.identification: [ {
+    position: 7 , 
+    label: 'Accnum'
+  } ]
+  @UI.lineItem: [ {
+    position: 7 , 
+    label: 'Accnum'
+  } ]
+  Accnum;
+  
+  @UI.identification: [ {
+    position: 8 
+  } ]
+  LastChangedAt;
+}
