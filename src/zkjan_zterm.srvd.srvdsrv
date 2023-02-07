@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition forZKJAN_C_ZTERM'
+define service ZKJAN_ZTERM {
+  expose ZKJAN_C_ZTERM as zterm;
+}

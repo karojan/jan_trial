@@ -1,0 +1,48 @@
+managed implementation in class zbp_cl_kjan_zterm unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZKJAN_I_ZTERM alias zterm
+persistent table zkjan_a_zterm
+draft table zkjan_d_zterm
+etag master Locallastchangedat
+lock master total etag Lastchangedat
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   Mvgr1,
+   Pltyp,
+   Datab;
+
+  field ( readonly )
+   Lastchangedat,
+   Locallastchangedat;
+
+  field ( readonly : update )
+   Mvgr1,
+   Pltyp,
+   Datab;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZKJAN_A_ZTERM
+  {
+    Mvgr1 = mvgr1;
+    Pltyp = pltyp;
+    Datab = datab;
+    Datbi = datbi;
+    Zterm = zterm;
+    Lastchangedat = lastchangedat;
+    Locallastchangedat = locallastchangedat;
+  }
+}

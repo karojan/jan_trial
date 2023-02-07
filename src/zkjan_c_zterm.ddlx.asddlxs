@@ -1,0 +1,73 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'zterm', 
+    typeNamePlural: 'zterms'
+  }
+}
+annotate view ZKJAN_C_ZTERM with
+{
+  @UI.facet: [ {
+    id: 'idIdentification', 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'zterm', 
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #MEDIUM, 
+    label: 'Mvgr1'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Mvgr1'
+  } ]
+  Mvgr1;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #MEDIUM, 
+    label: 'Pltyp'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Pltyp'
+  } ]
+  Pltyp;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #MEDIUM, 
+    label: 'Datab'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Datab'
+  } ]
+  Datab;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #MEDIUM, 
+    label: 'Datbi'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Datbi'
+  } ]
+  Datbi;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #MEDIUM, 
+    label: 'Zterm'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Zterm'
+  } ]
+  Zterm;
+  
+  @UI.hidden: true
+  Locallastchangedat;
+}
